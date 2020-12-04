@@ -14,8 +14,12 @@ public class Shooter {
     public void run(){
         if(controller.getRightTrigger()){
             SHOOT_RIGHT.set(.8);
-            SHOOT_LEFT.set(.8);
+            SHOOT_LEFT.set(-.8);
             SHOOT_LOAD.set(.4);
+        } else {
+            SHOOT_RIGHT.set(0);
+            SHOOT_LEFT.set(0);
+            SHOOT_LOAD.set(0);
         }
     }
     

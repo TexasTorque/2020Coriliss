@@ -13,10 +13,18 @@ public class Intake {
     
     public void run() {
         if(controller.getLeftTrigger()){
-            IN.set(.5);
-            e_r.set(.3);
-            e_l.set(.3);        
-        } 
+            IN.set(-.5);
+        } else {
+            IN.set(0);
+        }
+        
+        if(controller.getLeftBump() || controller.getRightTrigger()) {
+            e_r.set(-.6);
+            e_l.set(.6);
+        } else {
+            e_r.set(0);
+            e_l.set(0);
+        }
     }
 
     public static Intake getInstance(){ // should be abstracted
