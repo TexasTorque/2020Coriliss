@@ -14,9 +14,9 @@ public class DriveBase {
     PWMSparkMax right_2 = new PWMSparkMax(Input.DB_RIGHT_2);
    
     public void run() {
-        double leftRight = -controller.getRightXAxis();
-        leftSpeed = 0.4*(-controller.getLeftYAxis()-0.4*Math.pow(leftRight, 4)*Math.signum(leftRight));
-        rightSpeed = 0.4*(controller.getLeftYAxis()-0.4*Math.pow(leftRight, 4)*Math.signum(leftRight));
+        double leftRight = controller.getRightXAxis();
+        leftSpeed = -0.8*(-controller.getLeftYAxis()-0.8*Math.pow(leftRight, 4)*Math.signum(leftRight));
+        rightSpeed = -0.8*(controller.getLeftYAxis()-0.8*Math.pow(leftRight, 4)*Math.signum(leftRight));
         left_1.set(leftSpeed);
         left_2.set(leftSpeed);
         right_1.set(rightSpeed);
