@@ -10,7 +10,7 @@ package org.texastorque;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
-import org.texastorque.subsystems.DriveBase;
+import org.texastorque.subsystems.*;
 import org.texastorque.torquelib.base.TorqueIterative;
 
 /**
@@ -26,6 +26,8 @@ public class Robot extends TorqueIterative {
   private final SendableChooser<String> m_chooser = new SendableChooser<>();
   
   private DriveBase driveBase = DriveBase.getInstance();
+  private Shooter shooter = Shooter.getInstance();
+  private Intake intake = Intake.getInstance();
 
   /**
    * This function is run when the robot is first started up and should be
@@ -55,6 +57,8 @@ public class Robot extends TorqueIterative {
   @Override
   public void teleopContinuous() {
     driveBase.run();
+    shooter.run();
+    intake.run();
   }
   /**
    * This function is called once when the robot is disabled.
