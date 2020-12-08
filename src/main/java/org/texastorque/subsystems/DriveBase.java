@@ -2,6 +2,7 @@ package org.texastorque.subsystems;
 import org.texastorque.constants.Input;
 import edu.wpi.first.wpilibj.PWMSparkMax;
 import org.texastorque.torquelib.util.GenericController;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 public class DriveBase {
     private static volatile DriveBase instance;
@@ -15,8 +16,12 @@ public class DriveBase {
    
     public void run() {
         double leftRight = controller.getRightXAxis();
-        leftSpeed = -0.8*(-controller.getLeftYAxis()-0.8*Math.pow(leftRight, 4)*Math.signum(leftRight));
-        rightSpeed = -0.8*(controller.getLeftYAxis()-0.8*Math.pow(leftRight, 4)*Math.signum(leftRight));
+        leftSpeed = -0.4*(-controller.getLeftYAxis()-0.7*Math.pow(leftRight, 3));
+        rightSpeed = -0.4*(controller.getLeftYAxis()-0.7*Math.pow(leftRight, 3));
+        SmartDashboard.putNumber("LeftYAxis", controller.getLeftYAxis());
+        SmartDashboard.putNumber("leftRight", leftRight);
+        SmartDashboard.putNumber("Left", leftSpeed);
+        SmartDashboard.putNumber("Right", rightSpeed);
         left_1.set(leftSpeed);
         left_2.set(leftSpeed);
         right_1.set(rightSpeed);

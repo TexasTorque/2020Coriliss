@@ -6,7 +6,7 @@ import org.texastorque.torquelib.util.GenericController;
 
 public class Intake {
     private static volatile Intake instance;
-    GenericController controller = new GenericController(0, 0.1);
+    GenericController controller = new GenericController(1, 0.1);
     PWMSparkMax IN = new PWMSparkMax(Input.INTAKE);
     PWMSparkMax e_r = new PWMSparkMax(Input.RIGHT_ELEVATOR);
     PWMSparkMax e_l = new PWMSparkMax(Input.LEFT_ELEVATOR);
